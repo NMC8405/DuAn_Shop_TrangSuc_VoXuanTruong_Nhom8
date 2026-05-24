@@ -50,6 +50,12 @@ public class AdminProductController {
                        RedirectAttributes ra, Model model) {
 
         if (result.hasErrors()) {
+            if (product.getId() != null) {
+                try {
+                    Product existing = productService.findById(product.getId());
+                    product.setImages(existing.getImages());
+                } catch (Exception ignored) {}
+            }
             model.addAttribute("categories", categoryService.findAll());
             return "admin/products/form";
         }

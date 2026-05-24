@@ -39,7 +39,7 @@ public class SecurityConfig {
                 // Public routes
                 .requestMatchers("/", "/login", "/register", "/403",
                                  "/css/**", "/js/**", "/images/**", "/uploads/**",
-                                 "/favicon.ico").permitAll()
+                                 "/favicon.ico", "/api/chat").permitAll()
                 // Admin only
                 .requestMatchers("/admin/**").hasRole("ADMIN")
                 // User authenticated

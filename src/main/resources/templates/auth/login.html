@@ -98,6 +98,28 @@
       icon.classList.replace('fa-eye-slash', 'fa-eye');
     }
   }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    const usernameInput = document.querySelector('input[name="username"]');
+    const rememberMeCheck = document.getElementById('rememberMe');
+
+    // Load saved username
+    const savedUsername = localStorage.getItem('luxejewel_remembered_username');
+    if (savedUsername) {
+      usernameInput.value = savedUsername;
+      rememberMeCheck.checked = true;
+    }
+
+    // Save username on submit
+    form.addEventListener('submit', function() {
+      if (rememberMeCheck.checked) {
+        localStorage.setItem('luxejewel_remembered_username', usernameInput.value.trim());
+      } else {
+        localStorage.removeItem('luxejewel_remembered_username');
+      }
+    });
+  });
 </script>
 </body>
 </html>

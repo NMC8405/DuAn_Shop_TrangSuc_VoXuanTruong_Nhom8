@@ -35,5 +35,5 @@ build/
 ### Custom/Project Specific ###
 uploads/
 *.log
-*.sql
+# *.sql (Cho phép push file jewelry_shop.sql lên git)
 .env
